@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nodejs-service-svc
+  namespace: my-restaurant
+spec:
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app: nodejs-service
+  ports:
+    - protocol: TCP
+      port: 15778
+      targetPort: 3000

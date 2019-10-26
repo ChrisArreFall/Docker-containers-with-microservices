@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: go-service-svc
+  namespace: my-restaurant
+spec:
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app: go-service
+  ports:
+    - protocol: TCP
+      port: 15779
+      targetPort: 8080

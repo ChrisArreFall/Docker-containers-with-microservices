@@ -1,16 +1,15 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: ruby-service-ingress
+  name: nodejs-service-ingress
   namespace: my-restaurant
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: kubemaster
-    http:
+  - http:
       paths:
-      - path: /users
+      - path: /catalog
         backend:
-          serviceName: ruby-service-svc
-          servicePort: 15777
+          serviceName: nodejs-service-svc
+          servicePort: 15778

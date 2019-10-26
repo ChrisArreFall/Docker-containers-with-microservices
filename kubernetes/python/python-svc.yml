@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: python-service-svc
+  namespace: my-restaurant
+spec:
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app: python-service
+  ports:
+    - protocol: TCP
+      port: 15780
+      targetPort: 8181

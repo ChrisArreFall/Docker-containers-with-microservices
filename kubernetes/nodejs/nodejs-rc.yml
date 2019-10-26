@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nodejs-service
+  namespace: my-restaurant
+spec:
+  replicas: 5
+  selector:
+    app: nodejs-service
+  template:
+    metadata:
+      name: nodejs-service
+      labels:
+        app: nodejs-service
+    spec:
+      containers:
+      - name: nodejs-service
+        image: chrisarrefall/catalog-service
+        ports:
+        - containerPort: 3000

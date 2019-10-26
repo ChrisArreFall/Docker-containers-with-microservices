@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: go-service
+  namespace: my-restaurant
+spec:
+  replicas: 5
+  selector:
+    app: go-service
+  template:
+    metadata:
+      name: go-service
+      labels:
+        app: go-service
+    spec:
+      containers:
+      - name: go-service
+        image: ochesto/go-service
+        ports:
+        - containerPort: 8080
