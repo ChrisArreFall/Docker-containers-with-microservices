@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: my-node-web-app
+  name: ruby-service-svc
   namespace: my-restaurant
 spec:
   externalTrafficPolicy: Local
   type: LoadBalancer
   selector:
-    app: node-web-app
+    app: ruby-service
   ports:
     - protocol: TCP
-      port: 8000
-      targetPort: 3500
+      port: 15777
+      targetPort: 4567

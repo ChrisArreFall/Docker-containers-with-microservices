@@ -1,31 +1,15 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: simple-ingress-example
-  namespace: testing
+  name: ruby-service-ingress
+  namespace: my-restaurant
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
       paths:
-      - path: /foo
+      - path: /users
         backend:
-          serviceName: my-node-web-app
-          servicePort: 8000
-
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: example-ingress
-  namespace: testing
-  annotations:
-    ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - http:
-      paths:
-        - path: /apple
-          backend:
-            serviceName: my-node-web-app
-            servicePort: 8000
+          serviceName: ruby-service-svc
+          servicePort: 15777
