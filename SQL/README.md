@@ -4,7 +4,7 @@ Al igual que Neo4j debe ser configurada como servicio y vivir como parte del clu
 
 
 docker build -t sql-service .
-docker run -d -p 3306:3306 --name sql-service -e MYSQL_ROOT_PASSWORD=tec sql-service -v /home/docker/mysql-data:/var/lib/mysql
+docker run -d -p 3306:3306 --name sql-service -e MYSQL_ROOT_PASSWORD=tec -v DataVolume:/var/lib/mysql -v DataVolume:/tmp sql-service 
 
 
 docker exec -it sql-service bash

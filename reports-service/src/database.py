@@ -5,16 +5,16 @@ import pymysql
 #tiempo.
 class Database:
     def connect(self):
-        return pymysql.connect("sql-service","root","tec","restaurant-rdb" )
+        return pymysql.connect("192.168.100.131","root","tec","restaurant-rdb" )
 
     def read(self, inicio, final):
         con = Database.connect(self)
         cursor = con.cursor()
 
         try:
-            if inicio == None:
+            if inicio == 'None':
                 cursor.execute("SELECT * FROM SUCURSAL")
-            elif final == None: 
+            elif final == 'None': 
                 cursor.execute("SELECT * FROM SUCURSAL")
             else:
                 cursor.execute("SELECT * FROM ORDEN where fecha between '%s' and '%s';", (incio,final))

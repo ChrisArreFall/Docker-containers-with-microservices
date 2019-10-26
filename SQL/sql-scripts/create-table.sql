@@ -74,10 +74,10 @@ CREATE TABLE PRODUCTO (
 );
 
 CREATE TABLE ORDENXSERVICIO (
-    sucursalXmesa_id int NOT NULL AUTO_INCREMENT,
+    ordenXservicio_id int NOT NULL AUTO_INCREMENT,
     orden_id int,
     servicio_id int,
-    PRIMARY KEY (sucursalXmesa_id),
+    PRIMARY KEY (ordenXservicio_id),
     FOREIGN KEY (orden_id) REFERENCES ORDEN(orden_id),
     FOREIGN KEY (servicio_id) REFERENCES SERVICIO(servicio_id)
 );

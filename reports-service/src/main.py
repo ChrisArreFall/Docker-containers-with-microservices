@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, redirect, url_for, request, session
+from flask import Flask, flash, render_template, redirect, url_for, request, session, jsonify
 from database import Database
 import csv
 
@@ -16,13 +16,12 @@ def index():
 @app.route('/getCSV/<inicio>/<final>/', methods=['GET'])
 def update(inicio,final):
     data = db.read(inicio,final)
-    print('Hello world!', file=sys.stderr)
-    return data
+    return jsonify(data)
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return Null
+    return None
 
 if __name__ == '__main__':
     app.run(port=8181, host="0.0.0.0")

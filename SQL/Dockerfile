@@ -1,5 +1,5 @@
 # Derived from official mysql image (our base image)
-FROM mysql
+FROM mysql:latest
 # Add a database
 ENV MYSQL_ROOT_PASSWORD=tec
 ENV MYSQL_DATABASE restaurant-rdb
@@ -11,3 +11,5 @@ ENV MYSQL_PASSWORD=tec
 COPY my.cnf /etc/mysql/
 COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
 COPY create-csv.sql /
+
+EXPOSE 3306
