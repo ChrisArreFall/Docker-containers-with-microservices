@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  sql:
+    build: ./SQL/ 
+    restart: always
+    container_name: sql-service
+    ports:
+      - 3306:3306
+    expose:
+      - '3306'
+    environment: 
+      - MYSQL_ROOT_PASSWORD:tec 
+    volumes: 
+      - datavolume:/var/lib/mysql
+      - datavolume:/sql-data
+      - datavolume:/tmp
+
+  neo4j:
+    build: ./Neo4j/
+    ports:
+    - "17474:7474"
+    container_name: neo4j-service
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+    depends_on:
+      - sql
+    #command: > 
+    #  sh -c "cat /import/data.cypher | bin/neo4j-shell -u neo4j -p password"
+    volumes:
+      - datavolume:/sql-data
+      - datavolume:/var/lib/neo4j/import/
+
+  reports-service:
+    build: ./reports-service/
+    container_name: reports-service
+    depends_on:
+      - sql
+    
+    
+volumes:
+  datavolume:
+
+
+    
+
+#  catalog-service:
+#    image: ./catalog-service/
+#    depends_on:
+#      - sql
+
+#  orders-service:
+#    image: ./orders-service/
+#    depends_on:
+#      - sql
+
+  
+
+#  users-service:
+#    image: ./users-service/
+#    depends_on:
+#      - sql
+
+
+
+  

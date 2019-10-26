@@ -112,8 +112,3 @@ CREATE TABLE RESERVA (
     FOREIGN KEY (mesa_id) REFERENCES MESA(mesa_id)
 );
 
-
-
-
-
-

@@ -1,4 +1,4 @@
 golang
 Manejo de ordenes de compra de servicio.
 
-Se conecta con neo4j.
+Se conecta con SQL.

@@ -3,12 +3,20 @@ Al igual que Neo4j debe ser configurada como servicio y vivir como parte del clu
 
 
 
-docker build -t sql-service
-docker run -d -p 3306:3306 --name sql-service -e MYSQL_ROOT_PASSWORD=tec sql-service
+docker build -t sql-service .
+docker run -d -p 3306:3306 --name sql-service -e MYSQL_ROOT_PASSWORD=tec sql-service -v /home/docker/mysql-data:/var/lib/mysql
+
+
 docker exec -it sql-service bash
 mysql -uroot -p
 show databases;
 use restaurant-rdb;
 
 
+
 https://medium.com/better-programming/customize-your-mysql-database-in-docker-723ffd59d8fb
+
+
+
+Image for service sql was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Creating sql-service

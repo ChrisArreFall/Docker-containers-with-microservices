@@ -8,4 +8,6 @@ ENV MYSQL_PASSWORD=tec
 # Add the content of the sql-scripts/ directory to your image
 # All scripts in docker-entrypoint-initdb.d/ are automatically
 # executed during container startup
+COPY my.cnf /etc/mysql/
 COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
+COPY create-csv.sql /

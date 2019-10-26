@@ -847,3 +847,5 @@ INSERT INTO RESERVA(cliente_id,sucursal_id,mesa_id,fecha) VALUES(3,2,3,'2008-6-1
 INSERT INTO RESERVA(cliente_id,sucursal_id,mesa_id,fecha) VALUES(19 ,5,6,'2006-4-24');
 INSERT INTO RESERVA(cliente_id,sucursal_id,mesa_id,fecha) VALUES(1,2,2,'2020-6-10');
 INSERT INTO RESERVA(cliente_id,sucursal_id,mesa_id,fecha) VALUES(18 ,3,10,'2018-2-26');
+
+
