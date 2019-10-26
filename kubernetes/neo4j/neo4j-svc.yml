@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: neo4j-service-svc
+  namespace: my-restaurant
+spec:
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app: neo4j-service
+  ports:
+    - protocol: TCP
+      port: 15900
+      targetPort: 7474

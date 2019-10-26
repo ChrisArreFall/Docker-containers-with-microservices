@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: go-service
-        image: ochesto/go-service
+        image: chrissarrefall/orders-service
         ports:
         - containerPort: 8080

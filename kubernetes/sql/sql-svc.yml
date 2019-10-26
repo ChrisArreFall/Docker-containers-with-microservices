@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sql-service-svc
+  namespace: my-restaurant
+spec:
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app: sql-service
+  ports:
+    - protocol: TCP
+      port: 15901
+      targetPort: 3306
