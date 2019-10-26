@@ -37,6 +37,13 @@ INTO OUTFILE '/tmp/RESERVA.csv'
 FIELDS ENCLOSED BY '"' TERMINATED BY ',' ESCAPED BY ''
 LINES TERMINATED BY '\r\n';
 
+SELECT 'reserva_id', 'cliente_id', 'sucursal_id', 'mesa_id', 'fecha'
+UNION 
+SELECT reserva_id, cliente_id, sucursal_id, mesa_id, fecha  FROM RESERVA 
+INTO OUTFILE '/tmp/SERVICIO.csv'
+FIELDS ENCLOSED BY '"' TERMINATED BY ',' ESCAPED BY ''
+LINES TERMINATED BY '\r\n';
+
 SELECT 'sucursal_id', 'nombre', 'direccion'
 UNION 
 SELECT sucursal_id, nombre, direccion FROM SUCURSAL 
@@ -44,9 +51,9 @@ INTO OUTFILE '/tmp/SUCURSAL.csv'
 FIELDS ENCLOSED BY '"' TERMINATED BY ',' ESCAPED BY ''
 LINES TERMINATED BY '\r\n';
 
-SELECT 'sucursalXmesa_id', 'orden_id', 'servicio_id'
+SELECT 'ordenXservicio_id', 'orden_id', 'servicio_id'
 UNION 
-SELECT sucursalXmesa_id, orden_id, servicio_id FROM ORDENXSERVICIO 
+SELECT ordenXservicio_id, orden_id, servicio_id FROM ORDENXSERVICIO 
 INTO OUTFILE '/tmp/ORDENXSERVICIO.csv'
 FIELDS ENCLOSED BY '"' TERMINATED BY ',' ESCAPED BY ''
 LINES TERMINATED BY '\r\n';
